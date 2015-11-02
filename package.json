@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test TWILIO_ACCOUNT_SID=ACe341a533f30992c5e8eacda412dd203e TWILIO_AUTH_TOKEN=b43f2f39dc0baac5a13acad57d8011ad mocha --timeout 100000"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

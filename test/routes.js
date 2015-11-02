@@ -1,7 +1,5 @@
 var request = require('supertest');
 var server = require('../index');
-var config = require('../config')[process.env.NODE_ENV];
-var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 describe('Loading the server', function () {
 
@@ -23,19 +21,5 @@ describe('Loading the server', function () {
       .expect(500, done);
   });
 
-  it('GET /fizzbuzz from Twilio should work', function(done) {
-    console.log(config.forwardURL);
-    client.calls.create({
-        url: config.forwardURL + "/fizzbuzz",
-        to: "+14155551212",
-        sendDigits: "5*",
-        from: config.twilioNumber,
-        method: "GET"
-    }, function(err, call) {
-      console.log(err);
-        console.log(call);
-    });
-
-  });
 
 });
