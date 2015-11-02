@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test TWILIO_ACCOUNT_SID=ACe341a533f30992c5e8eacda412dd203e TWILIO_AUTH_TOKEN=b43f2f39dc0baac5a13acad57d8011ad mocha --timeout 100000"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,11 @@
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "mocha": "^2.3.3",
     "twilio": "^2.5.2"
+  },
+  "devDependencies": {
+    "assert": "^1.3.0",
+    "supertest": "^1.1.0"
   }
 }
