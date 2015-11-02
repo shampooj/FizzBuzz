@@ -14,7 +14,7 @@
 
 6. Substitute in your Twilio Auth Token and the Forwarding URL below as environment variables and run the command:
 
-   `TWILIO_AUTH_TOKEN={your token here} FORWARDING_URL={your url here} node index.js`
+   `TWILIO_AUTH_TOKEN=yourtokenhere FORWARDING_URL=yourURLhere node index.js`
 
 7. Configure your Twilio phone number to point to your `FORWARDING_URL/fizzbuzz` in Twilio Settings
 
