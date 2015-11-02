@@ -5,7 +5,7 @@ var fizzBuzz = require('./helpers');
 exports.fizzbuzz = function(request, response) {
 
   //Respond to get request with twiml
-  if (twilio.validateExpressRequest(request, process.env.TWILIO_AUTH_TOKEN)){
+  if (twilio.validateExpressRequest(request, process.env.TWILIO_AUTH_TOKEN, {"protocol": "https"})){
     var twiml = new twilio.TwimlResponse();
     twiml.say('Welcome to the FizzBuzz game!');
     twiml.say('Please enter a number using the number keys on your telephone, followed by the star key');
