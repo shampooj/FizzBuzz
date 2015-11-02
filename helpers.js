@@ -1,3 +1,5 @@
+
+//Returns the result of one turn of fizz buzz
 var fizzBuzzTurn = function(number){
   if (number % 15 == 0) {
     return "fizz buzz";
@@ -13,6 +15,7 @@ var fizzBuzzTurn = function(number){
   }
 }
 
+// Returns a string of fizzbuzz rounds up to a certain digit
 var fizzBuzzResults = function(digit){
   var results = "";
   for (var i = 1; i < digit + 1; i++){

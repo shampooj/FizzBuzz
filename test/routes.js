@@ -9,17 +9,19 @@ describe('Loading the server', function () {
       .expect(200, done);
   });
 
-  it('GET /fizzbuzz not from Twilio should not work', function(done) {
+  it('GET /fizzbuzz not from authorized Twilio should not work', function(done) {
     request(server)
       .get('/fizzbuzz')
       .expect(500, done);
   });
 
-  it('POST /digit not from Twilio should not work', function(done) {
+  it('POST /digit not from authorized Twilio should not work', function(done) {
     request(server)
       .post('/digit')
       .expect(500, done);
   });
+
+  //TODO: Need to include tests for authorized GET /fizzbuzz and POST /digit
 
 
 });
