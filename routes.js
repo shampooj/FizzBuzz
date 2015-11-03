@@ -11,7 +11,7 @@ exports.fizzbuzz = function(request, response) {
   // if (twilio.validateExpressRequest(request, process.env.TWILIO_AUTH_TOKEN)){
     var twiml = new twilio.TwimlResponse();
     twiml.say('Welcome to the FizzBuzz game!');
-    twiml.say('Please enter a number using the number keys on your telephone, followed by the star key');
+    twiml.say('Please enter a number using the number keys on your telephone, followed by the star key to indicate that you are finished typing');
     twiml.gather({
         action: process.env.FORWARDING_URL + "/digit",
         timeout: 10,
@@ -32,7 +32,9 @@ exports.digit = function(request, response) {
     var twiml = new twilio.TwimlResponse();
     var digit = parseInt(request.body.Digits);
     var results = fizzBuzz.results(digit);
-    twiml.say(digit);
+    console.log(results);
+    twiml.say("The results of this game are");
+    twiml.say(results);
     twiml.say("Thank you for playing!");
     twiml.hangup();
     response.type('text/xml');
