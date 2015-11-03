@@ -1,3 +1,4 @@
+var twilio = require('twilio');
 
 //Returns the result of one turn of fizz buzz
 var fizzBuzzTurn = function(number){
@@ -24,4 +25,14 @@ var fizzBuzzResults = function(digit){
   return results;
 }
 
-module.exports = { results: fizzBuzzResults, turn: fizzBuzzTurn };
+var generateTwimlResponse = function(digit){
+  var results = fizzBuzzResults(digit);
+  var twiml = new twilio.TwimlResponse();
+  twiml.say("The results of this game are");
+  twiml.say(results);
+  twiml.say("Thank you for playing!");
+  twiml.hangup();
+  return twiml.toString();
+}
+
+module.exports = { results: fizzBuzzResults, turn: fizzBuzzTurn, generateTwiml: generateTwimlResponse };

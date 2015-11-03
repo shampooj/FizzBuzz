@@ -1,7 +1,8 @@
 var request = require('supertest');
 var server = require('../index');
 var xml = require('xml');
-
+var fizzBuzz = require('../helpers');
+var assert = require('assert');
 
 describe('Loading the server', function () {
 
@@ -17,18 +18,22 @@ describe('Loading the server', function () {
                             { Say: 'Please enter a number using the number keys on your telephone, followed by the star key to indicate that you are finished typing' },
                             { Gather: [{ _attr: { action: process.env.FORWARDING_URL + "/digit", timeout: "10", finishOnKey:"*" }  } ] } ] } ],
                             { declaration: { encoding: 'UTF-8' }});
-    var actual;
     request(server)
       .get('/fizzbuzz')
       .expect(200, expectedXML, done)
   });
 
   it('POST /digit (without authentication) should respond with proper XML', function(done) {
-    request(server)
-      .post('/digit')
-      .expect(200, done);
-  });
 
-  //TODO: Need to include tests for authorized GET /fizzbuzz and POST /digit
+    request(server)
+        .post('/digit')
+        .send()
+        .end(function(err, res){
+          var expectedXML = fizzBuzz.generateTwiml(0);
+          assert.strictEqual(res.text, expectedXML);
+          done();
+        });
+
+  });
 
 });

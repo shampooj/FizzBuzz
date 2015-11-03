@@ -27,18 +27,12 @@ exports.fizzbuzz = function(request, response) {
 
 //Generate twiml response to user input of selected digit
 exports.digit = function(request, response) {
-
+  
   // if (twilio.validateExpressRequest(request, process.env.TWILIO_AUTH_TOKEN)) {
-    var twiml = new twilio.TwimlResponse();
     var digit = parseInt(request.body.Digits);
-    var results = fizzBuzz.results(digit);
-    console.log(results);
-    twiml.say("The results of this game are");
-    twiml.say(results);
-    twiml.say("Thank you for playing!");
-    twiml.hangup();
+    var twimlResponse = fizzBuzz.generateTwiml(digit);
     response.type('text/xml');
-    response.send(twiml.toString());
+    response.send(twimlResponse);
   // } else {
   //   response.send("You ain't Twilio, so get out.")
   // }

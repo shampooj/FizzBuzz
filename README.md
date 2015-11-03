@@ -22,4 +22,18 @@ Call your Twilio number and enjoy the game!
 
 ## TEST:
 
-1. `TWILIO_AUTH_TOKEN={your token here} npm test`
+1. Download NodeJS https://nodejs.org/en/
+
+2. `git clone https://github.com/shampooj/FizzBuzz.git`
+
+3. cd into the FizzBuzz directory
+
+4. From the terminal, run `npm install` to install all node modules
+
+5. Run `npm install ngrok -g` and `ngrok http 3000` to acquire a forwarding URL for `localhost:3000`, which Twilio requires.
+
+6. Configure your Twilio phone number to point to your `FORWARDING_URL/fizzbuzz` in Twilio Settings, and verify a number from which to make calls
+
+7. Substitute in your Twilio Auth Token and the Forwarding URL as environment variables and run
+
+   `TWILIO_AUTH_TOKEN=yourtokenhere FORWARDING_URL=yourURLhere npm test`
