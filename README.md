@@ -44,9 +44,9 @@ Call your Twilio number and enjoy the game!
 
 ## TODO:
 
-1. TLS enabled server to allow for Twilio Signature authentication: See routes.js for comments
+1. TLS enabled server to allow for Twilio Signature authentication: See index.js and routes.js and for comments
 Associated tests with TLS server
 
 2. Twiml phone input validation from user and associated tests
 
-3. More error handling! 
+3. More error handling!
