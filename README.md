@@ -41,3 +41,16 @@ The browser will automatically open, prompting you to play.
 8. Substitute in your Twilio Auth Token, Twilio Account SID, Twilio Number, verified Phone Number to call, and the Forwarding URL below as environment variables and run the command (make sure that your PHONE_NUMBER is formatted with country code ie: +15555555):
 
    `TWILIO_AUTH_TOKEN=yourtokenhere FORWARDING_URL=yourURLhere TWILIO_ACCOUNT_SID=yourid TWILIO_NUMBER=yournumber PHONE_NUMBER=numberToCall npm test`
+
+## TODO:
+
+1. TLS enabled server to allow for Twilio Signature authentication: See index.js and routes.js and for comments
+Associated tests with TLS server
+
+2. Twiml phone input validation from user and associated tests
+
+3. More error handling!
+
+4. Input validation on form, to ensure the user has entered a properly formatted number, and associated tests
+
+5. Full E2E test with a fake DOM!
