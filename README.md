@@ -41,3 +41,12 @@ Call your Twilio number and enjoy the game!
 8. Substitute in your Twilio Auth Token and the Forwarding URL as environment variables and run
 
    `TWILIO_AUTH_TOKEN=yourtokenhere FORWARDING_URL=yourURLhere npm test`
+
+## TODO:
+
+1. TLS enabled server to allow for Twilio Signature authentication: See routes.js for comments
+Associated tests with TLS server
+
+2. Twiml phone input validation from user and associated tests
+
+3. More error handling! 
