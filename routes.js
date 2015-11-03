@@ -1,5 +1,6 @@
 var twilio = require('twilio');
 var fizzBuzz = require('./helpers');
+var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
   //Respond to get request with twiml
 exports.fizzbuzz = function(request, response) {
@@ -42,5 +43,17 @@ exports.digit = function(request, response) {
 exports.callTwilioWithNumber = function(request, response) {
   var numberToCall = request.body.phoneNumber;
 
-  response.send(200);
+  //make the call to Twilio
+  client.calls.create({
+          url: process.env.FORWARDING_URL + "/fizzbuzz",
+          to: numberToCall,
+          from: process.env.TWILIO_NUMBER,
+          method: "GET"
+        }, function(err, call) {
+            if (err) {
+              console.log(err);
+            }
+        });
+
+  response.sendStatus(200);
 };
