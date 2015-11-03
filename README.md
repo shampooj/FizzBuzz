@@ -12,13 +12,13 @@
 
 5. Run `npm install ngrok -g` and `ngrok http 3000` to acquire a forwarding URL for `localhost:3000`, which Twilio requires.
 
-6. Substitute in your Twilio Auth Token and the Forwarding URL below as environment variables and run the command:
+6. Configure your Twilio phone number to point to your `FORWARDING_URL/fizzbuzz` in Twilio Settings, and verify a number to which to make calls
 
-   `TWILIO_AUTH_TOKEN=yourtokenhere FORWARDING_URL=yourURLhere node index.js`
+7. Substitute in your Twilio Auth Token, Twilio Account SID, Twilio Number, and the Forwarding URL below as environment variables and run the command:
 
-7. Configure your Twilio phone number to point to your `FORWARDING_URL/fizzbuzz` in Twilio Settings
+   `TWILIO_AUTH_TOKEN=yourtokenhere FORWARDING_URL=yourURLhere TWILIO_ACCOUNT_SID=yourid TWILIO_NUMBER=yournumber node index.js`
 
-Call your Twilio number and enjoy the game!
+The browser will automaticall open, prompting you to play.
 
 ## TEST:
 
@@ -34,6 +34,6 @@ Call your Twilio number and enjoy the game!
 
 6. Configure your Twilio phone number to point to your `FORWARDING_URL/fizzbuzz` in Twilio Settings, and verify a number from which to make calls
 
-7. Substitute in your Twilio Auth Token and the Forwarding URL as environment variables and run
+7. Substitute in your Twilio Auth Token, Twilio Account SID, Twilio Number, verified Phone Number to call, and the Forwarding URL below as environment variables and run the command (make sure that your PHONE_NUMBER is formatted with country code ie: +15555555):
 
-   `TWILIO_AUTH_TOKEN=yourtokenhere FORWARDING_URL=yourURLhere npm test`
+   `TWILIO_AUTH_TOKEN=yourtokenhere FORWARDING_URL=yourURLhere TWILIO_ACCOUNT_SID=yourid TWILIO_NUMBER=yournumber PHONE_NUMBER=numberToCall npm test`

@@ -5,6 +5,7 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 var routes = require('./routes');
+var open = require('open');
 
 // Create Express web app
 var app = express();
@@ -42,5 +43,7 @@ var server = app.listen(3000, function () {
   var port = server.address().port;
   console.log('FizzBuzz app listening at http://localhost', host, port);
 });
+
+open(process.env.FORWARDING_URL + "/index.html");
 
 module.exports = server;
