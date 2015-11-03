@@ -9,7 +9,7 @@ var routes = require('./routes');
 // Create Express web app
 var app = express();
 app.use(bodyparser.urlencoded({ extended: true }));
-
+app.use(express.static('public'));
 
 //Sanity check
 app.get('/', function (req, res) {
@@ -20,6 +20,7 @@ app.get('/', function (req, res) {
 // Twilio Webhook routes
 app.get('/fizzbuzz', routes.fizzbuzz);
 app.post('/digit', routes.digit);
+app.post('/callTwilio', routes.callTwilioWithNumber);
 
 /////////TLS ENABLED SERVER
 // Twilio requires a public domain to point a number to, which is acquired by using a module called

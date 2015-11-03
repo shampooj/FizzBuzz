@@ -27,7 +27,7 @@ exports.fizzbuzz = function(request, response) {
 
 //Generate twiml response to user input of selected digit
 exports.digit = function(request, response) {
-  
+
   // if (twilio.validateExpressRequest(request, process.env.TWILIO_AUTH_TOKEN)) {
     var digit = parseInt(request.body.Digits);
     var twimlResponse = fizzBuzz.generateTwiml(digit);
@@ -37,4 +37,10 @@ exports.digit = function(request, response) {
   //   response.send("You ain't Twilio, so get out.")
   // }
 
+};
+
+exports.callTwilioWithNumber = function(request, response) {
+  var numberToCall = request.body.phoneNumber;
+
+  response.send(200);
 };
